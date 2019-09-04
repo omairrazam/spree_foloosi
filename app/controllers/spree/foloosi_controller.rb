@@ -1,4 +1,4 @@
-require 'httparty'
+
 
 module Spree
   class FoloosiController < StoreController
@@ -102,7 +102,7 @@ module Spree
       {
         redirect_url: foloosi_v2_url,
         transaction_amount: @order.total,
-        currency: 'AED'
+        currency: current_currency.present? ? current_currency : "AED"
       }
 
     end
